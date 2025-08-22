@@ -9,6 +9,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 
+// News Section Component
 function NewsSection() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,13 +18,24 @@ function NewsSection() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const apiKey = process.env.REACT_APP_SERPAPI_KEY; // ⚠️ Exposed in frontend
-        const corsProxy = "https://api.allorigins.win/raw?url=";
+        const apiKey = process.env.REACT_APP_SERPAPI_KEY;
 
-        // Build the SerpAPI URL
-        const targetUrl = `https://serpapi.com/search.json?engine=google_news&q=cybersecurity&hl=en&gl=in&api_key=${apiKey}`;
+        // Build query object
+        const query = {
+          api_key: apiKey,
+          engine: "google_news",
+          q: "cybersecurity news",
+          google_domain: "google.com",
+          gl: "in",
+          hl: "en",
+        };
+
+        // Convert query object to query string
+        const params = new URLSearchParams(query).toString();
+        const targetUrl = `https://serpapi.com/search.json?${params}`;
 
         // Wrap with proxy
+        const corsProxy = "https://api.allorigins.win/raw?url=";
         const response = await fetch(corsProxy + encodeURIComponent(targetUrl));
 
         if (!response.ok) {
@@ -66,6 +78,7 @@ function NewsSection() {
         </Typography>
       );
     }
+
     return (
       <Grid container spacing={3}>
         {news.map((article, idx) => (
@@ -79,9 +92,7 @@ function NewsSection() {
                 boxShadow: 3,
                 height: "100%",
                 transition: "transform 0.2s",
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                },
+                "&:hover": { transform: "translateY(-5px)" },
               }}
             >
               <CardActionArea
@@ -89,13 +100,8 @@ function NewsSection() {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                }}
+                sx={{ display: "flex", flexDirection: "column", height: "100%" }}
               >
-                {/* Image or Fallback */}
                 <Box
                   component="img"
                   src={

@@ -122,7 +122,7 @@ function Footer() {
   const contributors = [
     { name: "Rohan", url: "https://github.com/Rohan-Zara" },
     { name: "Nirbhay", url: "https://github.com/24nirbhay" },
-    { name: "Akash", url: "https://github.com/akash-0304" },
+   /* { name: "Akash", url: "https://github.com/akash-0304" }*/,
     { name: "Aashva", url: "https://github.com/AASHVA-bit" }
   ];
 

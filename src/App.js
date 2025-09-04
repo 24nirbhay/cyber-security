@@ -10,6 +10,7 @@ import SMSDetector from "./components/SMSDetector";
 import ThreatMap from "./components/ThreatMap";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const theme = createTheme({
   palette: {

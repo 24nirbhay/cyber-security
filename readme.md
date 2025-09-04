@@ -106,7 +106,7 @@ final/
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/AASHVA-bit/final.git
+   git clone https://github.com/24nirbhay/cyber-security.git
    cd final
    ```
 
@@ -121,7 +121,7 @@ final/
    ```
 
 4. **Open in browser:**  
-   Visit [https://final-nine-vert.vercel.app/](https://final-nine-vert.vercel.app/)
+   Visit [https://dnagoa-cyber-security.vercel.app/](https://dnagoa-cyber-security.vercel.app/)
 
 ---
 
